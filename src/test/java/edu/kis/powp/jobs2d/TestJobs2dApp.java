@@ -11,6 +11,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.drivers.AnimatedDriver;
 import edu.kis.powp.jobs2d.drivers.LoggerDriver;
 import edu.kis.powp.jobs2d.drivers.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
@@ -66,6 +67,9 @@ public class TestJobs2dApp {
         Job2dDriver basicLineDriver = new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic");
         DriverFeature.addDriver("Basic line Simulator", basicLineDriver);
         DriverFeature.getDriverManager().setCurrentDriver(basicLineDriver);
+
+        Job2dDriver animatedDriver = new AnimatedDriver(basicLineDriver);
+        DriverFeature.addDriver("Animated Basic Line", animatedDriver);
 
         Job2dDriver specialLineDriver = new LineDriverAdapter(drawerController, LineFactory.getSpecialLine(), "special");
         DriverFeature.addDriver("Special line Simulator", specialLineDriver);
