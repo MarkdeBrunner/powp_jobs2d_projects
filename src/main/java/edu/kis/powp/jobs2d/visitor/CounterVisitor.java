@@ -15,6 +15,16 @@ public class CounterVisitor implements CommandVisitor {
         return count;
     }
 
+    public void resetCount() {
+        this.count = 0;
+    }
+
+    public static int countCommands(DriverCommand command) {
+        CounterVisitor visitor = new CounterVisitor();
+        command.accept(visitor);
+        return visitor.getCount();
+    }
+
     @Override
     public void visit(SetPositionCommand setPositionCommand) {
         count++;
