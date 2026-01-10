@@ -1,19 +1,27 @@
 package edu.kis.powp.jobs2d.events;
 
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
 import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.manager.CommandManager;
 import edu.kis.powp.jobs2d.command.visitor.CommandCounterVisitor;
-import edu.kis.powp.jobs2d.features.CommandsFeature;
 
 public class SelectDisplayCommandCounterOptionListener implements ActionListener {
+    private final CommandManager commandManager;
 
+    public SelectDisplayCommandCounterOptionListener(CommandManager commandManager) {
+        this.commandManager = commandManager;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        DriverCommand command = CommandsFeature.getDriverCommandManager().getCurrentCommand();
+
+        DriverCommand command = commandManager.getCurrentCommand();
         
         if (command == null) {
             JOptionPane.showMessageDialog(null, "No command loaded.", "Command Counter Info", JOptionPane.INFORMATION_MESSAGE);
