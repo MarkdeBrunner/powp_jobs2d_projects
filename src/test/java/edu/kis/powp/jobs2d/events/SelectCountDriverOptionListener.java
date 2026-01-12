@@ -35,6 +35,7 @@ public class SelectCountDriverOptionListener implements ActionListener {
         logger.info("The driver structure consists of " + stats.getCount() + " drivers.\n" +
                     "LoggerDriver count: " + stats.getLoggerDriverCount() + "\n" +
                     "AnimatedDriverDecorator count: " + stats.getAnimatedDriverDecoratorCount() + "\n" +
-                    "LineDriverAdapter count: " + stats.getLineDriverAdapterCount());
+                    "LineDriverAdapter count: " + stats.getLineDriverAdapterCount() + "\n" +
+                    "TransformerDriverDecorator count: " + stats.getTransformerDriverDecoratorCount());
     }
 }

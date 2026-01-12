@@ -1,10 +1,10 @@
 package edu.kis.powp.jobs2d.visitor;
 
-
 import edu.kis.powp.jobs2d.drivers.LoggerDriver;
 import edu.kis.powp.jobs2d.drivers.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.AnimatedDriverDecorator;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
+import edu.kis.powp.jobs2d.drivers.transformation.TransformerDriverDecorator;
 
 /**
  * Interface for the Visitor pattern to traverse and process drivers.
@@ -35,4 +35,10 @@ public interface DriverVisitor {
      * @param lineDriverAdapter the adapter to visit
      */
     void visit(LineDriverAdapter lineDriverAdapter);
+
+    /**
+     * Visits a TransformerDriverDecorator.
+     * @param transformerDriverDecorator the driver decorator to visit
+     */
+    void visit(TransformerDriverDecorator transformerDriverDecorator);
 }
