@@ -7,15 +7,16 @@ import java.nio.file.Files;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import edu.kis.powp.jobs2d.command.importer.JsonCommandImportParser;
+import edu.kis.powp.jobs2d.command.importer.CommandImportParser;
 import edu.kis.powp.jobs2d.command.manager.CommandManager;
 
 public class SelectImportCommandOptionListener implements ActionListener {
     private final CommandManager commandManager;
+    private final CommandImportParser parser;
 
-    public SelectImportCommandOptionListener(CommandManager commandManager) {
+    public SelectImportCommandOptionListener(CommandManager commandManager, CommandImportParser parser) {
         this.commandManager = commandManager;
+        this.parser = parser;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class SelectImportCommandOptionListener implements ActionListener {
             try {
                 String content = new String(Files.readAllBytes(file.toPath()));
 
-                commandManager.importCurrentCommandFromText(content, new JsonCommandImportParser());
+                commandManager.importCurrentCommandFromText(content, parser);
 
                 JOptionPane.showMessageDialog(null, "Command imported successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
