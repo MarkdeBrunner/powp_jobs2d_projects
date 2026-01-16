@@ -1,10 +1,12 @@
 package edu.kis.powp.jobs2d.drivers;
 
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.Iterator;
-import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
+
 import edu.kis.powp.jobs2d.visitor.DriverVisitor;
+import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
 
 public class DriverComposite implements VisitableJob2dDriver {
     private List<VisitableJob2dDriver> drivers;
@@ -23,6 +25,13 @@ public class DriverComposite implements VisitableJob2dDriver {
 
     public Iterator<VisitableJob2dDriver> iterator() {
         return drivers.iterator();
+    }
+
+    /**
+     * Returns read-only view of contained drivers for traversal or copying.
+     */
+    public List<VisitableJob2dDriver> getDrivers() {
+        return Collections.unmodifiableList(drivers);
     }
 
     @Override

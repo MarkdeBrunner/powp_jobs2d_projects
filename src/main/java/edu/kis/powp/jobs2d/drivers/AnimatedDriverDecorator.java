@@ -2,9 +2,11 @@ package edu.kis.powp.jobs2d.drivers;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+
 import javax.swing.SwingUtilities;
-import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
+
 import edu.kis.powp.jobs2d.visitor.DriverVisitor;
+import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
 
 public class AnimatedDriverDecorator implements VisitableJob2dDriver {
     private static final int DEFAULT_DELAY_MS = 100;
@@ -69,6 +71,20 @@ public class AnimatedDriverDecorator implements VisitableJob2dDriver {
 
     public void setSpeedSlow() {
         this.delayMs = 400;
+    }
+
+    /**
+     * Exposes wrapped driver for visitor-based operations.
+     */
+    public VisitableJob2dDriver getTargetDriver() {
+        return targetDriver;
+    }
+
+    /**
+     * Current delay used by the animation queue.
+     */
+    public int getDelayMs() {
+        return delayMs;
     }
 
     @Override

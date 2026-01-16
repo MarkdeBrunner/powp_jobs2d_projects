@@ -2,8 +2,8 @@ package edu.kis.powp.jobs2d.drivers.adapter;
 
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
-import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
 import edu.kis.powp.jobs2d.visitor.DriverVisitor;
+import edu.kis.powp.jobs2d.visitor.VisitableJob2dDriver;
 
 /**
  * Line adapter - Job2dDriver with DrawPanelController object.
@@ -40,6 +40,35 @@ public class LineDriverAdapter implements VisitableJob2dDriver {
     @Override
     public void accept(DriverVisitor visitor) {
         visitor.visit(this);
+    }
+
+    /**
+     * Exposes drawing controller used by this adapter.
+     */
+    public DrawPanelController getDrawController() {
+        return drawController;
+    }
+
+    /**
+     * Provides access to line prototype used for drawing.
+     */
+    public ILine getLine() {
+        return line;
+    }
+
+    /**
+     * Adapter name shown in UI/logging.
+     */
+    public String getName() {
+        return name;
+    }
+
+    public int getStartX() {
+        return startX;
+    }
+
+    public int getStartY() {
+        return startY;
     }
 
     @Override

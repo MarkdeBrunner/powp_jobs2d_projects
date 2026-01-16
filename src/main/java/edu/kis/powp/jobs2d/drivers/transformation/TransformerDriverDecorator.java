@@ -30,6 +30,14 @@ public class TransformerDriverDecorator implements VisitableJob2dDriver {
         return "Transformer Driver";
     }
 
+    public Job2dDriver getDriver() {
+        return driver;
+    }
+
+    public TransformStrategy getStrategy() {
+        return strategy;
+    }
+
     @Override
     public void accept(DriverVisitor visitor) {
         visitor.visit(this);
