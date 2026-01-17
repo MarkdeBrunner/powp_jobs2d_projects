@@ -1,0 +1,14 @@
+{
+  "name": "Octagon from JSON",
+  "commands": [
+    { "type": "setPosition", "x": 100, "y": 40 },
+    { "type": "operateTo", "x": 40, "y": 100 },
+    { "type": "operateTo", "x": -40, "y": 100 },
+    { "type": "operateTo", "x": -100, "y": 40 },
+    { "type": "operateTo", "x": -100, "y": -40 },
+    { "type": "operateTo", "x": -40, "y": -100 },
+    { "type": "operateTo", "x": 40, "y": -100 },
+    { "type": "operateTo", "x": 100, "y": -40 },
+    { "type": "operateTo", "x": 100, "y": 40 }
+  ]
+}

@@ -19,12 +19,12 @@ public class CommandManagerWindow extends JFrame implements WindowComponent {
     private CommandManager commandManager;
 
     private JTextArea currentCommandField;
-
+    private JButton btnImportCommand;
     private String observerListString;
     private JTextArea observerListField;
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 9204679248304669948L;
 
@@ -71,6 +71,13 @@ public class CommandManagerWindow extends JFrame implements WindowComponent {
         c.gridx = 0;
         c.weighty = 1;
         content.add(btnClearObservers, c);
+
+        btnImportCommand = new JButton("Import JSON");
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.gridx = 0;
+        c.weighty = 1;
+        content.add(btnImportCommand, c);
     }
 
     private void clearCommand() {
@@ -107,6 +114,10 @@ public class CommandManagerWindow extends JFrame implements WindowComponent {
         } else {
             this.setVisible(true);
         }
+    }
+
+    public void setImportActionListener(java.awt.event.ActionListener actionListener) {
+        btnImportCommand.addActionListener(actionListener);
     }
 
 }
